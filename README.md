@@ -1,3 +1,4 @@
 # Books to Read
-Simple CRUD site using Bootstrap/jQuery and Flask.
-Video demonstrates all CRUD functions: viewing a book, editing info, adding a new book to the database, deleting data from an entry.
+CRUD app using Bootstrap/jQuery and Flask. Video demonstrates viewing a book, editing info, adding a new book to the database, deleting data from an entry. <br>
+
+<video src="https://www.youtube.com/watch?v=l2Vo8R9XPG0&feature=youtu.be" width="320" height="200" controls preload></video>
