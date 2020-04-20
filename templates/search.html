@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+<script>
+    var books = {{books|tojson}}
+    var title = {{title|tojson}}
+</script>
+
+<div>
+    <div id="header">
+        <h1>Books to Read</h1>
+        <span class="subheading">Showing <span id="num_results"></span> results</span>
+    </div>
+
+    <div id="log" class="row">
+        {% for book in books %}
+        <div class="col-md-3">
+            <div class='card mb-3'>
+                <a href='/view/{{book.id}}'><img class='card-img-top' src={{book.cover}} alt="{{book.title}} cover image"></a>
+                <div class='card-body'>
+                    <h5 class='card-title'>{{book.title|safe}}</h5>
+                    <span class='card=text'>{{book.author|safe}}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}

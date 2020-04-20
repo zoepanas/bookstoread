@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- JQuery -->
+
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+    <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+          rel = "stylesheet">
+    <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+
+    <style>
+
+        #header{
+            width: 100%;
+            padding-left: 20px;
+            padding-top: 75px;
+            padding-bottom: 75px;
+            background-color: lightblue;
+            display: inline-block;
+            font-size: 40px;
+        }
+
+        #user_input{
+            padding-top: 30px;
+        }
+
+        #client_box{
+            width: 100%;
+        }
+
+        #reams_box{
+            width: 100%;
+        }
+
+        #log{
+            padding-top: 20px;
+        }
+
+        .sale{
+            padding-top: 5px;
+            padding-bottom: 5px;
+        }
+        
+        #welcome{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            text-align: center;
+        }
+
+        .subheading{
+            font-size: 20px;
+        }
+
+        .substring_searched{
+            font-style: italic;
+        }
+
+        #create_block{
+            padding-top: 30px;
+        }
+
+        #cover_img{
+            width: 200px;
+        }
+
+        #book_title{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        #info{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+
+        .label_{
+            font-weight: bold;
+        }
+
+        #view_ct{
+            padding-top: 30px;
+        }
+
+        .highlight{
+            background-color: yellow;
+        }
+
+        .undo_delete{
+            margin-top: 18px;
+        }
+
+
+    </style>
+</head>
+<body class="container">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/create">Create</a>
+                </li>
+            </ul>
+            <div class="d-inline-flex">
+                <input id="searchbar" class="form-control mr-sm-2 d-inline-flex" type="search" placeholder="Title or Author" aria-label="Search">
+                <button id="search_btn" class="btn btn-primary my-2 my-sm-0" type="submit">Go</button>
+            </div>
+            
+        </div>
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+
+</body>
+</html>

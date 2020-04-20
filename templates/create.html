@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'create.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+<script>
+    var books = {{books|tojson}}
+</script>
+
+<div>
+    <div id="transition_alert"></div>
+
+    <div id="header">
+        <h1>Create a Book</h1>
+    </div>
+
+    <div id="create_block" class="row">
+        <div class="col-md-6">
+            <div id="title_div">
+                <label for="title">Title: </label>
+                <input type="textbox" id="title" class="label"> <br>
+            </div>
+            
+            <div id="author_div">
+                <label for="author">Author: </label>
+                <input type="textbox" id="author" class="label"> <br>
+            </div>
+            
+            <div id="cover_div">
+                <label for="cover">Cover (image link): </label>
+                <input type="textbox" id="cover" class="label"> <br>
+            </div>
+            
+            <div id="description_div">
+                <label for="description">Description: </label>
+                <input type="textbox" id="description" class="label"> <br>
+            </div>
+            
+            <div id="rating_div">
+                <label for="rating">Goodreads Rating: </label>
+                <input type="textbox" id="rating" class="label"> <br>
+            </div>
+            
+            <div id="genre1_div">
+                <label for="genre1">First Genre: </label>
+                <input type="textbox" id="genre1" class="label">
+            </div>
+            
+        </div>
+        
+        <div class="col-md-6">
+        
+            <div id="genre2_div">
+                <label for="genre2">Second Genre: </label>
+                <input type="textbox" id="genre2" class="label"> <br>
+            </div>
+            
+            <div id="genre3_div">
+                <label for="genre3">Third Genre: </label>
+                <input type="textbox" id="genre3" class="label"> <br>
+            </div>
+            
+            <div id="review1_div">
+                <label for="reivew1">First Review: </label>
+                <input type="textbox" id="review1" class="label"> <br>
+            </div>
+            
+            <div id="review2_div">
+                <label for="review2">Second Review: </label>
+                <input type="textbox" id="review2" class="label"> <br>
+            </div>
+            
+            <div id="review3_div">
+                <label for="review3">Third Review: </label>
+                <input type="textbox" id="review3" class="label"> <br>
+            </div>
+            
+            <button id="create_btn" class="btn btn-primary">Create Book</button>
+            <div id="new_item"></div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

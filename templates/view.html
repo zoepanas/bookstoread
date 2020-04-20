@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'view.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'search.js') }}"></script>
+
+
+    <script>
+        var books = {{books|tojson}}
+        var iden = {{iden|tojson}}
+        var title = {{title|tojson}}
+        var author = {{author|tojson}}
+        var cover = {{cover|tojson}}
+        var description = {{description|tojson}}
+        var rating = {{rating|tojson}}
+        var genres = {{genres|tojson}}
+        var reviews = {{reviews|tojson}}
+    </script>
+
+<div id="view_ct" class="container">
+    <div class="row">
+        <div class="col-md-9">
+            <span id="book_title">{{title}}</span><br>
+            {{author}}
+        </div>
+        
+    </div>
+    <div id="info" class="row">
+        <div class="col-md-3">
+            <img id='cover_img' src={{cover}} alt="{{title}} cover image">
+        </div>
+        <div class="col-md-9">
+            <span class="label_">Description:</span> {{description}} <br><br>
+            <span class="label_">Goodreads Rating:</span> <span id="current_rating">{{rating}}</span>
+            <span id="edit_rating">
+                <input type="textbox" id="new_rating">
+                <button id="rating_submit_btn" class="btn btn-outline-primary btn-sm">Submit</button>
+                <button id="rating_discard_btn" class="btn btn-outline-primary btn-sm">Discard Changes</button>
+            </span>
+            <button id="edit_rating_btn" class="btn btn-outline-primary btn-sm">Edit</button>
+            <br><br>
+            <span class="label_">Genres:</span> <br>
+            <div id="genres_div">
+            {% for genre in genres %}
+                {% if genre.mark_as_deleted is sameas false %}
+                <div id={{loop.index}}.undo_div><button id={{loop.index}}.undo class="undo_delete btn btn-warning">Undo Delete</button> <br></div>
+                <div id={{loop.index}}.show_div class="showing_genres"><button id="{{loop.index}}.genre" class='btn btn-warning del_btn btn-sm'>X</button> {{genre.name|safe}}</div>
+                
+                {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <span class="label_">Reviews:</span>
+            <button id="add_review_btn" class="btn btn-outline-primary btn-sm">Add Review</button> <br><br>
+            <div id="add_review">
+                <label for="new_review" class="label_">Add a Review: </label> <br>
+                <input type="textbox" id="new_review" placeholder="Type review here">
+                <button id="review_submit_btn" class="btn btn-outline-primary btn-sm">Submit</button>
+                <button id="review_discard_btn" class="btn btn-outline-primary btn-sm">Discard Changes</button>
+            </div>
+            <div id="current_reviews">
+                {% for review in reviews%}
+                    {{review}}<br><br>
+                {% endfor %}
+            </div>
+            
+            
+        </div>
+        
+    </div>
+    
+</div>
+
+{% endblock %}

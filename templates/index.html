@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'database.js') }}"></script>
+
+<script>
+    var books = {{books|tojson}}
+</script>
+
+<div>
+    <div id="header">
+        <h1>Books to Read</h1>
+    </div>
+
+    <div id="welcome">Welcome to Books to Read, the best place to find your next favorite fantasy or science-fiction book!</div>
+
+    <div id="log" class="row"></div>
+</div>
+
+{% endblock %}
